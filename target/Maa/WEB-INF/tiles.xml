@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition" template="/common/common_layout/layout.jsp">
+		<put-attribute name="header" value="/common/header.jsp" />
+		<put-attribute name="left_bar" value="/common/leftbar.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="" />
+		<put-list-attribute name="cssitems"></put-list-attribute>
+		<put-list-attribute name="jsitems"></put-list-attribute>
+	</definition>
+	
+	<definition name="Asset-Details" extends="base.definition">
+		<put-attribute name="body" value="/views/Asset-Details.jsp" />
+		<put-list-attribute name="cssitems"></put-list-attribute>
+		<put-list-attribute name="jsitems"></put-list-attribute>
+	</definition>
+	<definition name="Owner-details" extends="base.definition">
+		<put-attribute name="body" value="/views/Owner-details.jsp" />
+		<put-list-attribute name="cssitems"></put-list-attribute>
+		<put-list-attribute name="jsitems"></put-list-attribute>
+	</definition>
+	
+	<definition name="property-details" extends="base.definition">
+		<put-attribute name="body" value="/views/property-details.jsp" />
+		<put-list-attribute name="cssitems"></put-list-attribute>
+		<put-list-attribute name="jsitems"></put-list-attribute>
+	</definition>
+	<definition name="useradmin" extends="base.definition">
+		<put-attribute name="body" value="/views/useradmin.jsp" />
+		<put-list-attribute name="cssitems"></put-list-attribute>
+		<put-list-attribute name="jsitems"></put-list-attribute>
+	</definition>
+	<definition name="tenant-details" extends="base.definition">
+           <put-attribute name="body" value="/views/tenant-details.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+	
+	     <definition name="Meter-readings" extends="base.definition">
+           <put-attribute name="body" value="/views/Meter-readings.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+	<definition name="MeterCosts" extends="base.definition">
+           <put-attribute name="body" value="/views/MeterCosts.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+     <definition name="invoice" extends="base.definition">
+           <put-attribute name="body" value="/views/invoice.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+     <definition name="GSTsettings" extends="base.definition">
+           <put-attribute name="body" value="/views/GSTsettings.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+      <definition name="payment" extends="base.definition">
+           <put-attribute name="body" value="/views/payment.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+	
+  <definition name="comingsoon" extends="base.definition">
+           <put-attribute name="body" value="/views/comingsoon.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition> 
+     <definition name="vendor-details" extends="base.definition">
+           <put-attribute name="body" value="/views/vendor-details.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+      <definition name="expence-details" extends="base.definition">
+           <put-attribute name="body" value="/views/expence-details.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+       <definition name="tearms-conditons" extends="base.definition">
+           <put-attribute name="body" value="/views/tearms-conditons.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+      <definition name="association" extends="base.definition">
+           <put-attribute name="body" value="/views/association.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+     <definition name="notification" extends="base.definition">
+           <put-attribute name="body" value="/views/notification.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+      <definition name="visitors" extends="base.definition">
+           <put-attribute name="body" value="/views/visitors.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+	  <definition name="complaints" extends="base.definition">
+           <put-attribute name="body" value="/views/complaints.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+      <definition name="classifides" extends="base.definition">
+           <put-attribute name="body" value="/views/classifides.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+    <definition name="classifidesAdd" extends="base.definition">
+           <put-attribute name="body" value="/views/classifidesAdd.jsp" />
+           <put-list-attribute name="cssitems"></put-list-attribute>
+           <put-list-attribute name="jsitems"></put-list-attribute>
+     </definition>
+</tiles-definitions>

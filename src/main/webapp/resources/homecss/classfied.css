@@ -1,0 +1,831 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+.classified-img {
+	background-image: url(../homeimages/classified/1.png);
+	background-image:
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url('../homeimages/classified/1.png');
+	height:250px;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+}
+.blog-img {
+	/*background-image: url(../images/classified/1.png);*/
+	background-image:
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url('../homeimages/classified/1.png');
+	height: 250px;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+}
+
+
+.nav-pills .nav-link.active {
+	background-color: #DA5427 !important;
+}
+.search-div {
+	width: 100%;
+	position: relative;
+}
+.classified2 {
+	width: 70%;
+	/*left: 14%;*/
+}
+.search-div {
+	padding: 50px;
+	/*			box-shadow: 0 0 20px -2px rgba(0, 0, 0, .35);*/
+}
+#custm-form input {
+	width: 100%;
+	padding: 30px;
+	/*box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.125);
+	box-shadow: 0 0 20px -2px rgba(0, 0, 0, .35);*/
+	font-size: 14px;
+}
+.custm-btn {
+	position: absolute;
+	right: 6%;
+}
+.classifided-btn button {
+	width: 100%;
+	border: none;
+	border-radius: 0px !important;
+	padding: 19px;
+	background-color: #DA5427;
+	color: #fff;
+	font-size: 14px;
+}
+.custm-form button {}
+#orangebtn {
+	background-color: #DA5427;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 20px;
+	padding: 7px 25px !important;
+}
+.search-div ul li a {
+	color: #fff;
+	letter-spacing: 1px;
+}
+/*.classified{
+	padding-top: 3%;
+}*/
+.classified-property {
+	position: relative;
+}
+.rupee {
+	position: absolute;
+	top: 40%;
+	left: 3%;
+}
+.classified-property p {
+	font-size: 13px;
+	margin-bottom: 0px;
+	font-weight: 500;
+}
+.classified-head h5 {
+	font-size: 14px;
+}
+#home-section {
+	position: relative;
+}
+.classified2 {
+	position: absolute;
+	width: 100%;
+	top: 10%;
+}
+#mobile-div {
+	background: #313131;
+	width: 100%;
+	height: 56px;
+	position: fixed;
+	/* top: 90%; */
+	bottom: 0%;
+	z-index: 1000;
+}
+.mobile-inner {
+	padding-top: 9px;
+}
+.mobile-inner p {
+	color: #DA5427;
+	font-weight: 600;
+}
+.enq-section span i {
+	font-size: 16px;
+	color: #DA5427
+}
+#property-single {
+	padding-top: 9%;
+}
+.enqiryImg {
+	position: absolute;
+	left: 44%;
+	top: -6%;
+}
+.rent-head h3 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	font-size: 16px;
+}
+#addressid h3 {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 13px;
+	margin-bottom: 10px;
+	color: #2D66B0;
+	font-weight: 600
+}
+#imageIcon p img {
+	border: 1px solid #2D66B0;
+	border-radius: 50%;
+	padding: 5px;
+}
+#availble {
+	border-top: 1px solid #dee2e6;
+	border-bottom: 1px solid #dee2e6;
+	background-color: #3F465B;
+	color: #fff;
+}
+.tenancy-form {
+	border: 1px solid #dfe3e4;
+	padding: 10px;
+	position: relative;
+}
+.applyImg {
+	position: absolute;
+	left: 44%;
+	bottom: 86%;
+}
+.tenancy-form input[type="text"] {
+	padding: 0.7rem !important;
+	font-size: 13px;
+}
+.tenancy-form p {
+	font-size: 14px !important;
+}
+.centerbtn button {
+	width: 100%;
+}
+.custm-head {
+	color: #DA5427 !important;
+	font-weight: 500;
+	font-size: 22px;
+}
+.apply-form h4 {
+	color: #DA5427 !important;
+	font-weight: 500 !important;
+}
+.mbldiv {
+	width: 100%;
+	position: fixed;
+	bottom: 0%;
+	z-index: 1000;
+}
+.mbldiv a {
+	width: 100% !important;
+	border-radius: 0px;
+}
+.title_property {
+	font-size: 16px;
+	width: 296px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #1c1c1c;
+	text-align: left;
+}
+.address {
+	color: #444;
+	font-size: 13px;
+}
+.image_property img {
+	border-radius: 5px;
+}
+.copy-link {
+	position: relative;
+}
+.copy-link input {
+	font-size: 14px;
+}
+.copy-link button {
+	position: absolute;
+	right: 0%;
+	bottom: 1%;
+	background-color: #DA5427;
+	color: #fff;
+	width: 22%;
+}
+.copy-link button:hover {
+	background-color: #DA5427;
+	color: #fff;
+}
+.share-link span {
+	font-size: 30px;
+	margin-right: 15px
+}
+.share-link p {
+	margin-bottom: 0px;
+}
+.fb a {
+	color: #3b5998;
+}
+.twt a {
+	color: #2c95e0;
+}
+.pin a {
+	color: #BD081B;
+}
+.lln a {
+	color: #2177b4;
+}
+.gplus a {
+	color: #cc4338;
+}
+.title-prop h3 {
+	font-size: 30px;
+	color: #DA5427
+}
+.sharebtn {
+	text-align: right;
+}
+#enquryModal .modal-header h5 {
+	color: #DA5427;
+}
+.service-title h4 {
+	color: #DA5427;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+}
+/*Vendor service section start here*/
+#vendor-section {
+	background-image: url(../homeimages/vendor/1.jpg);
+	background-image:
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url('../homeimages/vendor/1.jpg');
+	height: 320px;
+	width: 100%;
+	background-size: cover;
+	background-position: top;
+	position: relative;
+	padding-top: 11%;
+}
+.find-btn button {}
+#vendor-innerbtn {
+	padding: 17px 30px;
+	border-radius: 0px;
+	background-color: #DA5427;
+	border-color: #DA5427;
+	color: #fff;
+}
+.vendors-head h2 {
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 26px;
+}
+.vendor-main-page img {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+}
+.vendor-name h4 {
+	font-size: 16px;
+	font-weight: 600;
+	font-family: 'Montserrat', sans-serif;
+	color: #DA5427;
+}
+.vendor-address h6 {
+	font-size: 13px;
+	font-weight: 500;
+	color: #757575
+}
+.vendor-details p {
+	margin-bottom: 5px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #757575;
+}
+.vendor-details p span {
+	color: #DA5427;
+}
+.share-vendor span {
+	font-size: 20px;
+}
+.whatapp a {
+	color: #46e676;
+}
+.vendor-page {
+	box-shadow: 0 0 20px -2px rgba(0, 0, 0, .35);
+}
+#shareIcon {
+	font-size: 14px;
+	color: #DA5427;
+}
+.vendor-page {
+	position: relative;
+}
+.ven-wishlist {
+	position: absolute;
+	right: 5%;
+}
+.vendor-btn span {
+	cursor: pointer;
+	font-size: 18px;
+	color: #DA5427;
+}
+p a {
+	text-decoration: none;
+	color: #757575;
+}
+.title_property span {}
+#vendor-bread ol li a {
+	color: #DA5427;
+}
+#bread {
+	background-color: #e9ecef;
+}
+#vendor-bread .breadcrumb {
+	padding-bottom: 0px !important;
+}
+/*about page css starts here*/
+.about-description p {
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+}
+.vendor-main-page {
+	float: left;
+}
+/*Tenancy Management Service starts here*/
+.common-head h6 {
+	font-size: 18px;
+	color: #DA5427;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+}
+.locating-image img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.add-image img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.enq-whatapp h4 {
+	color: #DA5427;
+	font-weight: 600
+}
+.enq-whatapp a i {
+	font-size: 45px;
+	/*color: #39bea5;*/
+}
+.sharebtn span i {
+	font-size: 22px;
+	color: red;
+}
+.btn-app a {
+	width: 100%;
+}
+#custm-whatappbtn {
+	background: #39bea5;
+	border-radius: 25px;
+	color: #fff;
+	font-weight: 500;
+	font-size: 13px;
+	font-family: 'Montserrat', sans-serif;
+}
+.btn-app a i {
+	font-size: 20px;
+}
+
+.blogs-head{
+	background-color: #1759b0;
+}
+.blogs-head h5{
+	color: #fff;
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.blogs-property{
+	position: relative;
+	border: 5px solid #fff;
+}
+.hash-tags{
+	position: absolute;
+	top: 5%;
+    left: 3%;
+	width: 100%;
+	
+}
+
+#classified1{
+	background-color: #e3e3e3;
+}
+
+.testimonial-div{
+	box-shadow: 0 3px 11px 0 rgba(0,0,0,.15);
+}
+
+.testimonial-img span{
+	font-weight: 600
+}
+.starts{
+	color: #f6ac01;
+}
+
+
+    
+/*.testimonial-img{
+	float: left;
+	width: 80px;
+	margin-right: 10px;
+}*/
+.testimonial-img img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	
+}
+.testimonial-img2 img{
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	
+}
+.testimonial-img2{
+	float: right;
+}
+/*Mobile version starts here*/
+
+
+
+
+@media (max-width: 360px) {
+	body {
+		padding: 0px;
+		margin: 0px;
+		font-size: 13px;
+	}
+	#ven-section .container {
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+	.classified2 {
+		position: absolute;
+		width: 100% !important;
+		top: 24% !important;
+		left: 0% !important
+	}
+	.search-div-main {
+		padding-left: 0px !important;
+	}
+	.search-div {
+		padding: 0px !important;
+	}
+	.custm-btn {
+		right: 2% !important;
+	}
+	#property-single {
+		padding-top: 42% !important;
+	}
+	#addressid h3 {
+		font-size: 14px;
+	}
+	.rent-head h3 {
+		font-size: 16px;
+	}
+	.tenancy-form {
+		display: none;
+	}
+	.title-prop h3 {
+		font-size: 20px;
+	}
+	#availble {
+		background-color: #3F465B;
+	}
+	#vendor-section {
+		height: 560px;
+		padding-top: 41%;
+	}
+	#ven-section .col {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.vendors-head h2 {
+		font-size: 18px;
+	}
+	.vendor-details p {
+		font-size: 12px;
+		font-weight: 500;
+		white-space: nowrap;
+	}
+	.vendor-page {
+		padding-top: 16px !important;
+		padding-bottom: 16px !important;
+	}
+	.ven-wishlist {
+		right: 6%;
+	}
+	.search-div {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	#imageIcon p {
+		font-size: 11px;
+		white-space: nowrap;
+	}
+	.service-title h4 {
+		font-size: 16px;
+	}
+	.sharebtn span i {
+		font-size: 18px;
+	}
+	.modal-header .close {
+		padding: 8px;
+	}
+	.custmbread{
+	    margin-top: 40px!important;
+	
+	}
+	.custmbread {
+    margin-top: 40px!important;
+}
+}
+@media (max-width: 425px) {
+	body {
+		font-size: 14px;
+	}
+	#ven-section .container {
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+	.classified2 {
+		position: absolute;
+		width: 100%;
+		top: 13%;
+	}
+	.search-div {
+		padding: 0px !important;
+	}
+	.custm-btn {
+		right: 2% !important;
+	}
+	#property-single {
+		padding-top: 42% !important;
+	}
+	#addressid h3 {
+		font-size: 12px;
+	}
+	.rent-head h3 {
+		font-size: 14px;
+	}
+	.tenancy-form {
+		display: none;
+	}
+	.title-prop h3 {
+		font-size: 18px;
+	}
+	.sharebtn {
+		padding-top: 0px !important;
+	}
+	#vendor-section {
+		height: 560px;
+		padding-top: 41%;
+	}
+	#ven-section .col {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.vendor-page {
+		position: relative;
+	}
+	.ven-wishlist {
+		position: absolute;
+		right: 5%;
+	}
+	.vendor-btn span {
+		cursor: pointer;
+		font-size: 16px;
+		color: #DA5427;
+	}
+	.vendor-details p {
+		font-size: 12px;
+		font-weight: 500;
+		white-space: nowrap;
+	}
+	.vendor-page {
+		padding-top: 16px !important;
+		padding-bottom: 16px !important;
+	}
+	.ven-wishlist {
+		right: 6%;
+	}
+	.search-div {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	#imageIcon p {
+		font-size: 11px;
+		white-space: nowrap;
+	}
+	.service-title h4 {
+		font-size: 16px;
+	}
+	.sharebtn span i {
+		font-size: 18px;
+	}
+	
+	.custmbread{
+	    margin-top: 40px!important;
+	
+	}
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+	body {
+		font-size: 14px;
+	}
+	.classified2 {
+		position: absolute;
+		width: 100%;
+		top: 13%;
+	}
+	.search-div {
+		padding: 0px !important;
+	}
+	.custm-btn {
+		right: 2% !important;
+	}
+	#property-single {
+		padding-top: 30% !important;
+	}
+	.tenancy-form {
+		display: none;
+	}
+	#vendor-section {
+		height: 560px;
+		padding-top: 31%;
+	}
+	.vendor-details p {
+		font-size: 12px;
+		font-weight: 500;
+		white-space: nowrap;
+	}
+	.search-div {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	#imageIcon p {
+		font-size: 12px;
+		white-space: nowrap;
+	}
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.classified2 {
+		position: absolute;
+		width: 100%;
+		top: 34%;
+	}
+	.search-div {
+		padding: 0px !important;
+	}
+	.custm-btn {
+		right: 2% !important;
+	}
+	#property-single {
+		padding-top: 17%;
+	}
+	.mbldiv {
+		display: none;
+	}
+	.tenancy-form {
+		display: none;
+	}
+	.vendor-details p {
+		font-size: 12px;
+		white-space: nowrap;
+	}
+	#vendor-section {
+		height: 430px;
+		padding-top: 25%;
+	}
+	.search-div {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	#imageIcon p {
+		font-size: 12px;
+		white-space: nowrap;
+	}
+	#service-remove {
+		display: none;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.classified2 {
+		position: absolute;
+		width: 100%;
+		top: 34%;
+	}
+	.search-div {
+		padding: 0px !important;
+	}
+	.custm-btn {
+		right: 2% !important;
+	}
+	#property-single {
+		padding-top: 16%;
+	}
+	.mbldiv {
+		display: none;
+	}
+	.vendor-details p {
+		font-size: 12px;
+		white-space: nowrap;
+	}
+	#vendor-section {
+		height: 430px;
+		padding-top: 21%;
+	}
+	.rupee {
+		position: absolute;
+		top: 22%;
+		left: 3%;
+	}
+	#mobile-div {
+		display: none;
+	}
+	#imageIcon p {
+		font-size: 12px;
+		white-space: nowrap;
+	}
+}
+@media (min-width: 1199.98px) {
+	.classified2 {
+		position: absolute;
+		width: 100%;
+		top: 34%;
+	}
+	.search-div {
+		padding: 0px !important;
+	}
+	.custm-btn {
+		right: 2% !important;
+	}
+	.mbldiv {
+		display: none;
+	}
+	#vendor-section {
+		height: 400px;
+		padding-top: 16%;
+	}
+	#imageIcon p {
+		font-size: 12px;
+		white-space: nowrap;
+	}
+}
+@media (min-width: 1366px) {
+	.classified2 {
+		position: absolute;
+		width: 100%;
+		top: 34%;
+	}
+	.search-div {
+		padding: 0px !important;
+	}
+	.custm-btn {
+		right: 2% !important;
+	}
+	.mbldiv {
+		display: none;
+	}
+	#mobile-div {
+		display: none;
+	}
+	#imageIcon p {
+		font-size: 12px;
+	}
+}
+@media (min-width: 1440px) {
+	.mbldiv {
+		display: none;
+	}
+	#mobile-div {
+		display: none;
+	}
+}
+@media (min-width: 2560px) {
+	#property-single {
+		padding-top: 5%;
+	}
+	.mbldiv {
+		display: none;
+	}
+	#mobile-div {
+		display: none;
+	}
+}

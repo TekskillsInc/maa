@@ -1,0 +1,3 @@
+<a href="#" onclick="viewClassifiedInfoByID('${newTitle}','${csf.classified}')">
+
+<meta property="og:url" content="http://maaproperties.com/classifiedinfo/${viewObject.csfinfo.classified}" >

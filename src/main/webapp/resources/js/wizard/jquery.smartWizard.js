@@ -1,0 +1,757 @@
+/*
+ * SmartWizard 3.3.1 plugin
+ * jQuery Wizard control Plugin
+ * by Dipu
+ *
+ * Refactored and extended:
+ * https://github.com/mstratman/jQuery-Smart-Wizard
+ *
+ * Original URLs:
+ * http://www.techlaboratory.net
+ * http://tech-laboratory.blogspot.com
+ */
+
+function SmartWizard(target, options) {
+    this.target = target;
+    this.options = options;
+    this.curStepIdx = options.selected;
+    this.steps = $(target).children("ul").children("li").children("a"); // Get all anchors
+    this.contentWidth = 0;
+    this.msgBox = $('<div class="msgBox"><div class="content"></div><a href="#" class="close">X</a></div>');
+    this.elmStepContainer = $('<div></div>').addClass("stepContainer");
+    this.loader = $('<div>Loading</div>').addClass("loader");
+    this.buttons = {
+        next: $('<a>' + options.labelNext + '</a>').attr("href", "#").addClass("buttonNext"),
+        previous: $('<a>' + options.labelPrevious + '</a>').attr("href", "#").addClass("buttonPrevious"),
+        finish: $('<a>' + options.labelFinish + '</a>').attr("href", "#").addClass("buttonFinish")
+    };
+
+    /*
+     * Private functions
+     */
+    var radioValue = $("input[name='csfType']:checked"). val();
+	  if(radioValue=='Rent'||radioValue=='sale'){}
+    var _init = function ($this) {
+        var elmActionBar = $('<div></div>').addClass("actionBar");
+        elmActionBar.append($this.msgBox);
+        $('.close', $this.msgBox).click(function () {
+            $this.msgBox.fadeOut("normal");
+            return false;
+        });
+
+        var allDivs = $this.target.children('div');
+        $this.target.children('ul').addClass("anchor");
+        allDivs.addClass("content");
+
+        // highlight steps with errors
+        if ($this.options.errorSteps && $this.options.errorSteps.length > 0) {
+            $.each($this.options.errorSteps, function (i, n) {
+                $this.setError({
+                    stepnum: n,
+                    iserror: true
+                });
+            });
+        }
+
+        $this.elmStepContainer.append(allDivs);
+        elmActionBar.append($this.loader);
+        $this.target.append($this.elmStepContainer);
+        elmActionBar.append($this.buttons.previous)
+            .append($this.buttons.next)            
+            .append($this.buttons.finish);
+        $this.target.append(elmActionBar);
+        this.contentWidth = $this.elmStepContainer.width();
+        
+        
+
+        $($this.buttons.next).click(function () {
+            $this.goForward();
+            return false;
+        });
+        $($this.buttons.previous).click(function () {
+            $this.goBackward();
+            return false;
+        });
+        $($this.buttons.finish).click(function () {
+        	 if (!$(this).hasClass('buttonDisabled')) {
+                if ($.isFunction($this.options.onFinish)) {
+                    var context = {
+                        fromStep: $this.curStepIdx + 1
+                    };
+                    if (!$this.options.onFinish.call(this, $($this.steps), context)) {
+                        return false;
+                    }
+                } else {
+                	/*$('#formAddCSF').validate();
+                   	if(!$('#formAddCSF').valid())
+                   	 {
+                       	return false;
+                        }
+                   	else{*/
+                	
+                	var today=getToday();
+                	
+                	 var radioValue = $("input[name='csfType']:checked").val();
+                	
+                	  if(radioValue=='Rent'){
+                		 
+                		  var prtyid= $("#r_prtyid").val();
+                     	 var prtyName= $("#r_prtyName").val();
+                     	 var prtyidInt = parseInt(prtyid);
+                	  var csfPrtytype= $("#csfPrtytype").val();
+                	 var noofbaths= $("input[name='noofbaths']:checked").val();
+                	                 	 
+                	 var nofofparking= $("input[name='nofofparking']:checked").val();
+                	 
+                	 
+                	 var noofBeds=$("input[name='noofBeds']:checked").val();
+                	
+                	 
+                	 var areaSqft= $("#areaSqft").val();
+                	 var facing= $("#facing").val();
+                	 var prtyAddress= $("#prtyAddress").val();
+                	 var city= $("#city").val();
+                	 var state= $("#state").val();
+                	 var csfTitle= $("#csfTitle").val();
+                	 var csfDesription= $("#csfDesription").val();
+                	 var gmapLink= $("#gmapLink").val();
+                	 var prtyavialbleon= $("#prtyavialbleon").val();
+                	
+                	 var amount= $("#r_amount").val();
+                	 
+                	 var advance=$("#advance").val();
+                	 var name= $("#name").val();
+                	 var email= $("#email").val();
+                	 var phone= $("#phone").val();
+                	 var features = [];
+                	 
+                     $.each($("input[name='feature']:checked"), function(){
+                    	 features.push($(this).val());
+                     });
+                    
+                     var featureObj=features.toString();
+                    
+                     
+                     var form = $('#formAddCSF')[0];
+                     var filedata = new FormData(form);
+                  	 var classifiedRentObj={
+                			 csfType:radioValue,
+                			 csfPrtytype:csfPrtytype,
+                			 noofbaths:noofbaths,
+                			 nofofparking:nofofparking,
+                			 noofBeds:noofBeds,
+                			 areaSqft:areaSqft,
+                			 facing:facing,
+                			 prtyAddress:prtyAddress,
+                			 city:city,
+                			 state:state,
+                			 csfTitle:csfTitle,
+                			 csfDesription:csfDesription,
+                			 gmapLink:gmapLink,
+                			 prtyavialbleon:prtyavialbleon,
+                			 amount:amount,
+                			 advance:advance,
+                			 loanfacility:'NA',
+                			 name:name,
+                			 email:email,
+                			 phone:phone,
+                			 prtyid:prtyidInt,
+                			 postedon:today,
+                			 status:'Y'
+                			 
+                	 }
+                	 var classifiedDtoObj={
+                			 classifiedInfo:classifiedRentObj, 
+                			 classifiedFetures:featureObj
+                			 
+                	 }
+                	 $.ajax({
+          	            url: "saveClassifiedRent", //this is the submit URL
+          	            type: "POST",
+          	            contentType :"application/json",
+          	           	data : JSON.stringify(classifiedDtoObj),
+          	            processData: false,
+          	            cache: false,
+          	            success: function(data){
+          	            	
+          	            	
+          	            	$.ajax({
+              	            url: "saveClassifiedImages?id="+data+"", //this is the submit URL
+              	            type: "POST",
+              	            enctype: 'multipart/form-data',
+             	            data: filedata,
+             	            processData: false,
+             	            contentType: false,
+
+              	            
+              	            cache: false,
+              	            success: function(data){
+              	            	alert("Classified posted");
+              	            	window.location.href="classifides?prtyid="+prtyid+"&prptyName="+prtyName+"";
+              	            	
+              	            }
+          	            });
+          	            	
+          	            	
+          	            }
+          	        });
+                  	
+                	  }
+                	  else if(radioValue=='Sale'){
+                		 
+                		  var prtyid= $("#s_prtyid").val();
+                     	 var prtyName= $("#s_prtyName").val();
+                     	 var prtyidInt = parseInt(prtyid);
+                			 var csfPrtytype= $("#s_csfPrtytype").val();
+                        	 var noofbaths= $("input[name='s_noofbaths']:checked").val();
+                        	
+                        	 var nofofparking= $("input[name='s_nofofparking']:checked").val();
+                        	 
+                        	 var noofBeds=$("input[name='s_noofBeds']:checked").val();
+                        	
+                        	 var areaSqft= $("#s_areaSqft").val();
+                        	 var facing= $("#s_facing").val();
+                        	 var prtyAddress= $("#s_prtyAddress").val();
+                        	 var city= $("#s_city").val();
+                        	 var state= $("#s_state").val();
+                        	 var csfTitle= $("#csfTitle").val();
+                        	 var csfDesription= $("#csfDesription").val();
+                        	 var gmapLink= $("#gmapLink").val();
+                        	 var prtyavialbleon= $("#prtyavialbleon").val();
+                        	
+                        	 var amount=$('#s_amount').val();
+                        	 
+                        	 var loanfacility=$("#loanFacility").val();
+                        	 alert("loanfacility---"+loanfacility);
+                        	 var name= $("#name").val();
+                        	 var email= $("#email").val();
+                        	 var phone= $("#phone").val();
+                        	 var features = [];
+                        	 
+                        	 var images=[];
+                        	 
+                             $.each($("input[name='s_feature']:checked"), function(){
+                            	 features.push($(this).val());
+                             });
+                             var featureObj=features.toString();
+                             var form = $('#formAddCSF')[0];
+                             var filedata = new FormData(form);
+                             
+                          	 var classifiedSaleObj={
+                        			 csfType:radioValue,
+                        			 csfPrtytype:csfPrtytype,
+                        			 noofbaths:noofbaths,
+                        			 nofofparking:nofofparking,
+                        			 noofBeds:noofBeds,
+                        			 areaSqft:areaSqft,
+                        			 facing:facing,
+                        			 prtyAddress:prtyAddress,
+                        			 city:city,
+                        			 state:state,
+                        			 csfTitle:csfTitle,
+                        			 csfDesription:csfDesription,
+                        			 gmapLink:gmapLink,
+                        			 prtyavialbleon:prtyavialbleon,
+                        			 amount:amount,
+                        			 advance:'0',
+                        			 loanfacility:loanfacility,
+                        			 name:name,
+                        			 email:email,
+                        			 phone:phone,
+                        			 prtyid:prtyidInt,
+                        			 postedon:today,
+                        			 status:'Y'
+                        			 
+                        	 }
+                        	 var classifiedDtoObj={
+                        			 classifiedInfo:classifiedSaleObj, 
+                        			 classifiedFetures:featureObj
+                        			
+                        	 }
+                        	 $.ajax({
+                  	            url: "saveClassifiedSale", //this is the submit URL
+                  	            type: "POST",
+                  	            contentType :"application/json",
+                  	           	data : JSON.stringify(classifiedDtoObj),
+                  	            processData: false,
+                  	            
+                  	            cache: false,
+                  	            success: function(data){
+                  	            	
+                  	            	$.ajax({
+                          	            url: "saveClassifiedImages?id="+data+"", //this is the submit URL
+                          	            type: "POST",
+                          	            enctype: 'multipart/form-data',
+                         	            data: filedata,
+                         	            processData: false,
+                         	            contentType: false,
+
+                          	            
+                          	            cache: false,
+                          	            success: function(data){
+                          	            	alert("Classified posted");
+                          	            	window.location.href="classifides?prtyid="+prtyid+"&prptyName="+prtyName+"";
+                          	            	
+                          	            }
+                      	            });
+                  	            	
+                  	            	
+                  	            }
+                  	        });
+                	  }
+                	  else{
+                		
+                		  var prtyid= $("#h_prtyid").val();
+                      	 var prtyName= $("#h_prtyName").val();
+                		  var name= $("#hh_name").val();
+                		 
+                		  var email= $("#hh_email").val();
+                		  var phone= $("#hh_phone").val();
+                		 
+                		  var huntingfor= $("input[name='HuntingFor']:checked"). val();
+                		  var myinterests= $("#Myinterests").val();
+                		
+                		  var status='Y';
+                		  
+                		  var hhuntingObj={
+                				  name:name,
+                				  email:email,
+                				  phone:phone,
+                				  huntingfor:huntingfor,
+                				  myinterests:myinterests,
+                				  status:status,
+                				  prtyid:prtyid
+                		  }
+                		  $.ajax({
+                 	            url: "saveHHClassified", //this is the submit URL
+                 	            type: "POST",
+                 	            contentType :"application/json",
+                 	           	data : JSON.stringify(hhuntingObj),
+                 	            processData: false,
+                 	            
+                 	            cache: false,
+                 	            success: function(data){
+                 	            	alert("Classified posted");
+                 	            	window.location.href="classifides?prtyid="+prtyid+"&prptyName="+prtyName+"";
+                 	            	
+                 	            }
+                 	        });
+                	  }
+               	     
+                	
+               // }
+            }}
+            return false;
+        });
+
+        $($this.steps).bind("click", function (e) {
+            if ($this.steps.index(this) == $this.curStepIdx) {
+                return false;
+            }
+            var nextStepIdx = $this.steps.index(this);
+            var isDone = $this.steps.eq(nextStepIdx).attr("isDone") - 0;
+            if (isDone == 1) {
+                _loadContent($this, nextStepIdx);
+            }
+            return false;
+        });
+
+        // Enable keyboard navigation
+        if ($this.options.keyNavigation) {
+            $(document).keyup(function (e) {
+                if (e.which == 39) { // Right Arrow
+                    $this.goForward();
+                } else if (e.which == 37) { // Left Arrow
+                    $this.goBackward();
+                }
+            });
+        }
+        //  Prepare the steps
+        _prepareSteps($this);
+        // Show the first slected step
+        _loadContent($this, $this.curStepIdx);
+    };
+
+    var _prepareSteps = function ($this) {
+        if (!$this.options.enableAllSteps) {
+            $($this.steps, $this.target).removeClass("selected").removeClass("done").addClass("disabled");
+            $($this.steps, $this.target).attr("isDone", 0);
+        } else {
+            $($this.steps, $this.target).removeClass("selected").removeClass("disabled").addClass("done");
+            $($this.steps, $this.target).attr("isDone", 1);
+        }
+
+        $($this.steps, $this.target).each(function (i) {
+            $($(this).attr("href").replace(/^.+#/, '#'), $this.target).hide();
+            $(this).attr("rel", i + 1);
+        });
+    };
+
+    var _step = function ($this, selStep) {
+        return $(
+            $(selStep, $this.target).attr("href").replace(/^.+#/, '#'),
+            $this.target
+        );
+    };
+
+    var _loadContent = function ($this, stepIdx) {
+        var selStep = $this.steps.eq(stepIdx);
+        var ajaxurl = $this.options.contentURL;
+        var ajaxurl_data = $this.options.contentURLData;
+        var hasContent = selStep.data('hasContent');
+        var stepNum = stepIdx + 1;
+        if (ajaxurl && ajaxurl.length > 0) {
+            if ($this.options.contentCache && hasContent) {
+                _showStep($this, stepIdx);
+            } else {
+                var ajax_args = {
+                    url: ajaxurl,
+                    type: "POST",
+                    data: ({
+                        step_number: stepNum
+                    }),
+                    dataType: "text",
+                    beforeSend: function () {
+                        $this.loader.show();
+                    },
+                    error: function () {
+                        $this.loader.hide();
+                    },
+                    success: function (res) {
+                        $this.loader.hide();
+                        if (res && res.length > 0) {
+                            selStep.data('hasContent', true);
+                            _step($this, selStep).html(res);
+                            _showStep($this, stepIdx);
+                        }
+                    }
+                };
+                if (ajaxurl_data) {
+                    ajax_args = $.extend(ajax_args, ajaxurl_data(stepNum));
+                }
+                $.ajax(ajax_args);
+            }
+        } else {
+            _showStep($this, stepIdx);
+        }
+    };
+
+    var _showStep = function ($this, stepIdx) {
+        var selStep = $this.steps.eq(stepIdx);
+        var curStep = $this.steps.eq($this.curStepIdx);
+        if (stepIdx != $this.curStepIdx) {
+            if ($.isFunction($this.options.onLeaveStep)) {
+                var context = {
+                    fromStep: $this.curStepIdx + 1,
+                    toStep: stepIdx + 1
+                };
+                if (!$this.options.onLeaveStep.call($this, $(curStep), context)) {
+                    return false;
+                }
+            }
+        }
+        $this.elmStepContainer.height(_step($this, selStep).outerHeight());
+        var prevCurStepIdx = $this.curStepIdx;
+        $this.curStepIdx = stepIdx;
+        if ($this.options.transitionEffect == 'slide') {
+            _step($this, curStep).slideUp("fast", function (e) {
+                _step($this, selStep).slideDown("fast");
+                _setupStep($this, curStep, selStep);
+            });
+        } else if ($this.options.transitionEffect == 'fade') {
+            _step($this, curStep).fadeOut("fast", function (e) {
+                _step($this, selStep).fadeIn("fast");
+                _setupStep($this, curStep, selStep);
+            });
+        } else if ($this.options.transitionEffect == 'slideleft') {
+            var nextElmLeft = 0;
+            var nextElmLeft1 = null;
+            var nextElmLeft = null;
+            var curElementLeft = 0;
+            if (stepIdx > prevCurStepIdx) {
+                nextElmLeft1 = $this.contentWidth + 10;
+                nextElmLeft2 = 0;
+                curElementLeft = 0 - _step($this, curStep).outerWidth();
+            } else {
+                nextElmLeft1 = 0 - _step($this, selStep).outerWidth() + 20;
+                nextElmLeft2 = 0;
+                curElementLeft = 10 + _step($this, curStep).outerWidth();
+            }
+            if (stepIdx == prevCurStepIdx) {
+                nextElmLeft1 = $($(selStep, $this.target).attr("href"), $this.target).outerWidth() + 20;
+                nextElmLeft2 = 0;
+                curElementLeft = 0 - $($(curStep, $this.target).attr("href"), $this.target).outerWidth();
+            } else {
+                $($(curStep, $this.target).attr("href"), $this.target).animate({
+                    left: curElementLeft
+                }, "fast", function (e) {
+                    $($(curStep, $this.target).attr("href"), $this.target).hide();
+                });
+            }
+
+            _step($this, selStep).css("left", nextElmLeft1).show().animate({
+                left: nextElmLeft2
+            }, "fast", function (e) {
+                _setupStep($this, curStep, selStep);
+            });
+        } else {
+            _step($this, curStep).hide();
+            _step($this, selStep).show();
+            _setupStep($this, curStep, selStep);
+        }
+        return true;
+    };
+
+    var _setupStep = function ($this, curStep, selStep) {
+        $(curStep, $this.target).removeClass("selected");
+        $(curStep, $this.target).addClass("done");
+
+        $(selStep, $this.target).removeClass("disabled");
+        $(selStep, $this.target).removeClass("done");
+        $(selStep, $this.target).addClass("selected");
+
+        $(selStep, $this.target).attr("isDone", 1);
+        
+        var radioValue = $("input[name='csfType']:checked"). val();
+     
+  	  if(radioValue=='Rent'||radioValue=='Sale'){
+  		
+        _adjustButton($this);
+  	  }
+  	  else if(radioValue=='HHunting'){
+  		
+  		_newadjustButton($this);
+  	  }
+  	  else{
+  		 _adjustButton($this);
+  	  }
+        if ($.isFunction($this.options.onShowStep)) {
+            var context = {
+                fromStep: parseInt($(curStep).attr('rel')),
+                toStep: parseInt($(selStep).attr('rel'))
+            };
+            if (!$this.options.onShowStep.call(this, $(selStep), context)) {
+                return false;
+            }
+        }
+        if ($this.options.noForwardJumping) {
+            // +2 == +1 (for index to step num) +1 (for next step)
+            for (var i = $this.curStepIdx + 2; i <= $this.steps.length; i++) {
+                $this.disableStep(i);
+            }
+        }
+    };
+var _newadjustButton=function ($this) {
+	$($this.buttons.previous).hide();
+	 $($this.buttons.next).hide();
+	 $($this.buttons.finish).show();
+	 $($this.buttons.previous).addClass("buttonDisabled");
+	 $($this.buttons.next).addClass("buttonDisabled");
+	
+    
+    // Finish Button
+    
+    
+    if (!$this.steps.hasClass('disabled') || $this.options.enableFinishButton) {
+        $($this.buttons.finish).removeClass("buttonDisabled");
+        if ($this.options.hideButtonsOnDisabled) {
+            $($this.buttons.finish).show();
+        }
+    } 
+};
+
+    var _adjustButton = function ($this) {
+    	/*$($this.buttons.previous).show();
+   	 $($this.buttons.next).show();s
+   	 $($this.buttons.finish).show();*/
+        if (!$this.options.cycleSteps) {
+            if (0 >= $this.curStepIdx) {
+                $($this.buttons.previous).addClass("buttonDisabled");
+                if ($this.options.hideButtonsOnDisabled) {
+                    $($this.buttons.previous).hide();
+                }
+            } else {
+                $($this.buttons.previous).removeClass("buttonDisabled");
+                if ($this.options.hideButtonsOnDisabled) {
+                    $($this.buttons.previous).show();
+                }
+            }
+            if (($this.steps.length - 1) <= $this.curStepIdx) {
+                $($this.buttons.next).addClass("buttonDisabled");
+                if ($this.options.hideButtonsOnDisabled) {
+                    $($this.buttons.next).hide();
+                }
+            } else {
+                $($this.buttons.next).removeClass("buttonDisabled");
+                if ($this.options.hideButtonsOnDisabled) {
+                    $($this.buttons.next).show();
+                }
+            }
+        }
+        // Finish Button
+        
+        
+        if (!$this.steps.hasClass('disabled') || $this.options.enableFinishButton) {
+            $($this.buttons.finish).removeClass("buttonDisabled");
+            if ($this.options.hideButtonsOnDisabled) {
+                $($this.buttons.finish).show();
+            }
+        } else {
+            $($this.buttons.finish).addClass("buttonDisabled");
+            if ($this.options.hideButtonsOnDisabled) {
+                $($this.buttons.finish).hide();
+            }
+        }
+    };
+
+    /*
+     * Public methods
+     */
+
+    SmartWizard.prototype.goForward = function () {
+        var nextStepIdx = this.curStepIdx + 1;
+        if (this.steps.length <= nextStepIdx) {
+            if (!this.options.cycleSteps) {
+                return false;
+            }
+            nextStepIdx = 0;
+        }
+        _loadContent(this, nextStepIdx);
+    };
+
+    SmartWizard.prototype.goBackward = function () {
+        var nextStepIdx = this.curStepIdx - 1;
+        if (0 > nextStepIdx) {
+            if (!this.options.cycleSteps) {
+                return false;
+            }
+            nextStepIdx = this.steps.length - 1;
+        }
+        _loadContent(this, nextStepIdx);
+    };
+
+    SmartWizard.prototype.goToStep = function (stepNum) {
+        var stepIdx = stepNum - 1;
+        if (stepIdx >= 0 && stepIdx < this.steps.length) {
+            _loadContent(this, stepIdx);
+        }
+    };
+    SmartWizard.prototype.enableStep = function (stepNum) {
+        var stepIdx = stepNum - 1;
+        if (stepIdx == this.curStepIdx || stepIdx < 0 || stepIdx >= this.steps.length) {
+            return false;
+        }
+        var step = this.steps.eq(stepIdx);
+        $(step, this.target).attr("isDone", 1);
+        $(step, this.target).removeClass("disabled").removeClass("selected").addClass("done");
+    }
+    SmartWizard.prototype.disableStep = function (stepNum) {
+        var stepIdx = stepNum - 1;
+        if (stepIdx == this.curStepIdx || stepIdx < 0 || stepIdx >= this.steps.length) {
+            return false;
+        }
+        var step = this.steps.eq(stepIdx);
+        $(step, this.target).attr("isDone", 0);
+        $(step, this.target).removeClass("done").removeClass("selected").addClass("disabled");
+    }
+    SmartWizard.prototype.currentStep = function () {
+        return this.curStepIdx + 1;
+    }
+
+    SmartWizard.prototype.showMessage = function (msg) {
+        $('.content', this.msgBox).html(msg);
+        this.msgBox.show();
+    }
+    SmartWizard.prototype.hideMessage = function () {
+        this.msgBox.fadeOut("normal");
+    }
+    SmartWizard.prototype.showError = function (stepnum) {
+        this.setError(stepnum, true);
+    }
+    SmartWizard.prototype.hideError = function (stepnum) {
+        this.setError(stepnum, false);
+    }
+    SmartWizard.prototype.setError = function (stepnum, iserror) {
+        if (typeof stepnum == "object") {
+            iserror = stepnum.iserror;
+            stepnum = stepnum.stepnum;
+        }
+
+        if (iserror) {
+            $(this.steps.eq(stepnum - 1), this.target).addClass('error')
+        } else {
+            $(this.steps.eq(stepnum - 1), this.target).removeClass("error");
+        }
+    }
+
+    SmartWizard.prototype.fixHeight = function () {
+        var height = 0;
+
+        var selStep = this.steps.eq(this.curStepIdx);
+        var stepContainer = _step(this, selStep);
+        stepContainer.children().each(function () {
+            height += $(this).outerHeight();
+        });
+
+        // These values (5 and 20) are experimentally chosen.
+        stepContainer.height(height + 5);
+        this.elmStepContainer.height(height + 20);
+    }
+
+    _init(this);
+};
+
+
+
+(function ($) {
+
+    $.fn.smartWizard = function (method) {
+        var args = arguments;
+        var rv = undefined;
+        var allObjs = this.each(function () {
+            var wiz = $(this).data('smartWizard');
+            if (typeof method == 'object' || !method || !wiz) {
+                var options = $.extend({}, $.fn.smartWizard.defaults, method || {});
+                if (!wiz) {
+                    wiz = new SmartWizard($(this), options);
+                    $(this).data('smartWizard', wiz);
+                }
+            } else {
+                if (typeof SmartWizard.prototype[method] == "function") {
+                    rv = SmartWizard.prototype[method].apply(wiz, Array.prototype.slice.call(args, 1));
+                    return rv;
+                } else {
+                    $.error('Method ' + method + ' does not exist on jQuery.smartWizard');
+                }
+            }
+        });
+        if (rv === undefined) {
+            return allObjs;
+        } else {
+            return rv;
+        }
+    };
+
+    // Default Properties and Events
+    $.fn.smartWizard.defaults = {
+        selected: 0, // Selected Step, 0 = first step
+        keyNavigation: true, // Enable/Disable key navigation(left and right keys are used if enabled)
+        enableAllSteps: false,
+        transitionEffect: 'fade', // Effect on navigation, none/fade/slide/slideleft
+        contentURL: null, // content url, Enables Ajax content loading
+        contentCache: true, // cache step contents, if false content is fetched always from ajax url
+        cycleSteps: false, // cycle step navigation
+        enableFinishButton: false, // make finish button enabled always
+        hideButtonsOnDisabled: false, // when the previous/next/finish buttons are disabled, hide them instead?
+        errorSteps: [], // Array Steps with errors
+        labelNext: 'Next',
+        labelPrevious: 'Previous',
+        labelFinish: 'Submit',
+        noForwardJumping: false,
+        onLeaveStep: null, // triggers when leaving a step
+        onShowStep: null, // triggers when showing a step
+        onFinish: null // triggers when Finish button is clicked
+    };
+    
+    
+})(jQuery);

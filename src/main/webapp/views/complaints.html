@@ -1,0 +1,791 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MPRTS|Dashboard</title>
+	<meta name="description" content="Maa Properties">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="#">
+	<link rel="stylesheet" href="css/icons.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
+	<link rel="stylesheet" href="css/cs-skin-elastic.css">
+	<link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/datepicker.css">
+	<link rel="stylesheet" href="css/build.css">
+	<link rel="stylesheet" href="css/toggle.css">
+	<link rel="stylesheet" href="css/data-table/bootstrap-table.css">
+	<link rel="stylesheet" href="css/data-table/bootstrap-editable.css">
+	<link rel="stylesheet" href="css/quill.css">
+	<link rel="stylesheet" href="css/quill.snow.css">
+	<link rel="stylesheet" href="css/quill.bubble.css">
+	<link href="https://cdn.quilljs.com/1.1.6/quill.snow.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.navbar-brand {
+			font-size: 18px !important;
+		}
+
+		#custmSelect .form-control {
+			font-size: 13px !important;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Preloader -->
+	<div id="preloader">
+		<i class="circle-preloader"></i>
+		<img src="img/logo/rounded_logo.png" alt="">
+	</div>
+	<!-- Left Panel -->
+	<aside id="left-panel" class="left-panel">
+		<nav class="navbar navbar-expand-sm navbar-default">
+			<div id="main-menu" class="main-menu collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+					</li>
+					<li>
+						<a href="property-details.html"><i class="menu-icon fa fa-building-o"></i>Property Details </a>
+					</li>
+					<li>
+						<a href="Asset-Details.html"><i class="menu-icon fa fa-cubes"></i>Asset Details </a>
+					</li>
+					<li>
+						<a href="Owner-details.html"><i class="menu-icon fa fa-user"></i>Owner Details </a>
+					</li>
+					<li>
+						<a href="tenant-details.html"><i class="menu-icon fa fa-users"></i>Tenants Details </a>
+					</li>
+					<li>
+						<a href="association.html"><i class="menu-icon fa fa-users"></i>Association Details </a>
+					</li>
+					<li>
+						<a href="vendor-details.html"><i class="menu-icon fa fa-users"></i>Vendor Details </a>
+					</li>
+					<li>
+						<a href="Meter-readings.html"><i class="menu-icon fa fa-bank"></i>Meter Readings </a>
+					</li>
+					<li>
+						<a href="invoice.html"><i class="menu-icon fa fa-bar-chart-o"></i>Invoice </a>
+					</li>
+					<li>
+						<a href="payment.html"><i class="menu-icon fa fa-money"></i>Payment Details </a>
+					</li>
+					<li>
+						<a href="expence-details.html"><i class="menu-icon fa fa-credit-card"></i>Expenses Details </a>
+					</li>
+					<li>
+						<a href="visitors.html"><i class="menu-icon fa fa-car"></i>Visitors </a>
+					</li>
+					<li>
+						<a href="notification.html"><i class="menu-icon fa fa-bullhorn"></i>Notifications </a>
+					</li>
+					<li>
+						<a href="complaints.html"><i class="menu-icon fa fa-comments"></i>Complaints </a>
+					</li>
+					<li>
+						<a href="classifides.html"><i class="menu-icon fa fa-credit-card"></i>classifides </a>
+					</li>
+					<li>
+						<a href="events.html"><i class="menu-icon fa fa-info-circle"></i>Events </a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</nav>
+	</aside>
+	<!-- /#left-panel -->
+	<!-- Right Panel -->
+	<div id="right-panel" class="right-panel">
+		<!-- Header-->
+		<header id="header" class="header">
+			<div class="top-left">
+				<div class="navbar-header">
+					<a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+					<a class="navbar-brand" href="#">Manjeera Trinity Corporate</a>
+					<a class="navbar-brand hidden" href="./"><img src="img/logo/rounded_logo.png" alt="Logo"></a>
+				</div>
+				<!--
+                <div class="bulding-name">
+                    <p>Manjeera Trinity Corporate</p>
+                </div>
+-->
+				<!--
+-->
+			</div>
+			<div class="top-right">
+				<div class="header-menu">
+					<div class="header-left">
+						<div class="flash-msg">
+							<marquee behavior="scroll" direction="left" class="py-2">Maheshwar is a kingmaker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hello welcome to Maa Properties</marquee>
+						</div>
+						<div class="dropdown for-message">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="modal" data-target="#switchModalPopUp">
+								<i class="fa  fa-exchange"></i>
+							</button>
+						</div>
+						<a href="#">
+							<div class="dropdown for-notification">
+								<button class="btn btn-secondary dropdown-toggle" id="support">
+									<i class="fa fa-info-circle"></i>
+								</button>
+							</div>
+						</a>
+						<div class="dropdown for-notification">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-bell"></i>
+								<span class="count bg-danger">3</span>
+							</button>
+							<div class="dropdown-menu" aria-labelledby="notification">
+								<p class="red">You have 3 Notification</p>
+								<a class="dropdown-item media" href="#">
+									<i class="fa fa-check"></i>
+									<p>New Vendor Added</p>
+								</a>
+								<a class="dropdown-item media" href="#">
+									<i class="fa fa-info"></i>
+									<p>New Vendor Added</p>
+								</a>
+								<a class="dropdown-item media" href="#">
+									<i class="fa fa-warning"></i>
+									<p>New Vendor Added</p>
+								</a>
+							</div>
+						</div>
+						<div class="dropdown for-message">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fa  fa-user"></i>
+								<span class="count bg-primary">4</span>
+							</button>
+							<div class="dropdown-menu" aria-labelledby="message">
+								<p class="red">You have 4 Requests</p>
+								<a class="dropdown-item media" href="#">
+									<span class="photo media-left"><img alt="avatar" src="images/admin.jpg"></span>
+									<div class="message media-body">
+										<span class="name float-left">Veerababu</span>
+										<span class="time float-right">Just now</span>
+										<p class="my-2"><button type="button" class="btn btn-success btn-sm">Confirm</button>
+											<button type="button" class="btn btn-outline-link btn-sm">Not now</button></p>
+									</div>
+								</a>
+								<a class="dropdown-item media" href="#">
+									<span class="photo media-left"><img alt="avatar" src="images/admin.jpg"></span>
+									<div class="message media-body">
+										<span class="name float-left">Durga</span>
+										<span class="time float-right">Just now</span>
+										<p class="my-2"><button type="button" class="btn btn-success btn-sm">Confirm</button>
+											<button type="button" class="btn btn-outline-link btn-sm">Not now</button></p>
+									</div>
+								</a>
+								<a class="dropdown-item media" href="#">
+									<span class="photo media-left"><img alt="avatar" src="images/admin.jpg"></span>
+									<div class="message media-body">
+										<span class="name float-left">Mahesh</span>
+										<span class="time float-right">Just now</span>
+										<p class="my-2"><button type="button" class="btn btn-success btn-sm">Confirm</button>
+											<button type="button" class="btn btn-outline-link btn-sm">Not now</button></p>
+									</div>
+								</a>
+								<a class="dropdown-item media" href="#">
+									<span class="photo media-left"><img alt="avatar" src="images/admin.jpg"></span>
+									<div class="message media-body">
+										<span class="name float-left">Veerababu</span>
+										<span class="time float-right">Just now</span>
+										<p class="my-2"><button type="button" class="btn btn-success btn-sm">Confirm</button>
+											<button type="button" class="btn btn-outline-link btn-sm">Not now</button></p>
+									</div>
+								</a>
+								<hr>
+								<p class="text-center"><a href="#">View All</a></p>
+							</div>
+						</div>
+					</div>
+					<div class="user-area dropdown float-right">
+						<a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+						</a>
+						<div class="user-menu dropdown-menu">
+							<a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+							<a class="nav-link" href="#"><i class="fa fa-power -off"></i>Change Password</a>
+							<a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- /#header -->
+		<!--
+        <div class="breadcrumbs">
+            <div class="breadcrumbs-inner">
+                <div class="row m-0">
+                    <div class="col-sm-4">
+                        <div class="page-header float-left">
+                            <div class="page-title">
+                                <h1>Asset Details</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="page-header float-right">
+                            <div class="page-title">
+                                <ol class="breadcrumb text-right">
+                                    <li><a href="#">Dashboard</a></li>
+                                    <li><a href="#">Asset Details</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+-->
+		<!--    Modal popup for switch property start here-->
+		<div class="modal fade" id="switchModalPopUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Switch Property</h5>
+						<button type="button" class="close custmClose" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="switchprpty-list">
+							<div class="row">
+								<div class="col-md-12">
+									<aside class="profile-nav alt">
+										<section class="card" id="custm-card">
+											<div class="card-header user-header alt bg-dark">
+												<div class="media">
+													<a href="#">
+														<img class="align-self-center rounded-circle mr-3" style="width:100px; height:100px;" alt="" src="images/home-images/home.png">
+													</a>
+													<div class="media-body mt-3">
+														<h4 class="text-light display-6">Manjeera Trinity Corporate</h4>
+														<p>Kphb colony,<br>Jntu,Hyderabad</p>
+													</div>
+												</div>
+											</div>
+										</section>
+									</aside>
+								</div>
+								<div class="col-md-12">
+									<a href="#">
+										<aside class="profile-nav alt">
+											<section class="card" id="custm-card">
+												<div class="card-header user-header alt bg-dark">
+													<div class="media">
+														<a href="#">
+															<img class="align-self-center rounded-circle mr-3" style="width:100px; height:100px;" alt="" src="images/home-images/home.png">
+														</a>
+														<div class="media-body mt-3">
+															<h4 class="text-light display-6">Manjeera Trinity Corporate</h4>
+															<p>Kphb colony,<br>Jntu,Hyderabad</p>
+														</div>
+													</div>
+												</div>
+											</section>
+										</aside>
+									</a>
+								</div>
+								<div class="col-md-12">
+									<a href="#">
+										<aside class="profile-nav alt">
+											<section class="card" id="custm-card">
+												<div class="card-header user-header alt bg-dark">
+													<div class="media">
+														<a href="#">
+															<img class="align-self-center rounded-circle mr-3" style="width:100px; height:100px;" alt="" src="images/home-images/home.png">
+														</a>
+														<div class="media-body mt-3">
+															<h4 class="text-light display-6">Manjeera Trinity Corporate</h4>
+															<p>Kphb colony,<br>Jntu,Hyderabad-500075</p>
+														</div>
+													</div>
+												</div>
+											</section>
+										</aside>
+									</a>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<p class="text-center"><a href="#">View All</a></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-info">Ok</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--        Modal popup for switch property ends here-->
+		<!-- Content -->
+		<div class="content">
+			<!-- Animated -->
+			<div class="animated fadeIn">
+				<div class="col-md-12 col-sm-12 col-xs-12" id="assetMblVersn">
+					<div class="card" id="responseCard">
+						<div class="card-header">
+							<div class="row">
+								<div class="col-8">
+									<strong class="card-title">Complaints</strong>
+								</div>
+								<div class="col-4">
+									<div class="addButton" style="float: right">
+										<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#complaintAddModal"><i class="fa fa-plus"></i></button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="complaintsTable" class="text-center" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+									<thead>
+										<tr>
+											<th>Complaint ID</th>
+											<th>Image</th>
+											<th>From</th>
+											<th>Date</th>
+											<th>Title</th>
+											<th>Status</th>
+											<th class="custmheight">Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><a href="#">000022</a></td>
+											<td><img class="photo_round" src="images/user1.jpg" style="width: 50px;height: 50px;border-radius: 50%;"></td>
+											<td>Veerababu-AST0003</td>
+											<td>01-08-2018</td>
+											<td>Hello</td>
+											<td>Completed</td>
+											<td><button type="button" class="btn btn-outline-info btn-sm custnBtn" data-toggle="modal" data-target="#complaintIDModal"><i class="fa fa-eye"></i></button>
+												<button type="button" class="btn btn-outline-info btn-sm custnBtn" data-toggle="modal" data-target="#complaintEditModal"><i class="fa fa-edit"></i></button>
+												<button type="button" class="btn btn-outline-info btn-sm custnBtn"><i class="fa fa-trash-o"></i></button></td>
+										</tr>
+										<tr>
+											<td><a href="#">000022</a></td>
+											<td><img class="photo_round" src="images/pavan.jpg" style="width: 50px;height: 50px;border-radius: 50%;"></td>
+											<td>Veerababu-AST0003</td>
+											<td>01-08-2018</td>
+											<td>Hello</td>
+											<td>Completed</td>
+											<td><button type="button" class="btn btn-outline-info btn-sm custnBtn"><i class="fa fa-eye"></i></button>
+												<button type="button" class="btn btn-outline-info btn-sm custnBtn"><i class="fa fa-edit"></i></button>
+												<button type="button" class="btn btn-outline-info btn-sm custnBtn"><i class="fa fa-trash-o"></i></button></td>
+										</tr>
+										<tr>
+											<td><a href="#">000022</a></td>
+											<td><img class="photo_round" src="images/ramakrishna.jpg" style="width: 50px;height: 50px;border-radius: 50%;"></td>
+											<td>Veerababu-AST0003</td>
+											<td>01-08-2018</td>
+											<td>Hello</td>
+											<td>Completed</td>
+											<td><button type="button" class="btn btn-outline-info btn-sm custnBtn"><i class="fa fa-eye"></i></button>
+												<button type="button" class="btn btn-outline-info btn-sm custnBtn"><i class="fa fa-edit"></i></button>
+												<button type="button" class="btn btn-outline-info btn-sm custnBtn"><i class="fa fa-trash-o"></i></button></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<!--Complait Add Modal popup is start here-->
+				<div class="modal fade" id="complaintAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Add Complaint</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<label for="company" class=" form-control-label">Title</label>
+											<input type="text" id="company" placeholder="Title" class="form-control">
+										</div>
+										<div class="form-group">
+											<label for="company" class=" form-control-label">Description</label>
+											<div class="editor-full">
+												<div id="complaintEditAdd" class="ql-scroll-y">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-info btn-sm">
+									<i class="fa fa-save"></i> Draft
+								</button>
+								<button type="button" class="btn btn-info btn-sm">
+									<i class="fa fa-save"></i> Send
+								</button>
+								<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--Complaint Edit Modal popup is Start here-->
+				<div class="modal fade" id="complaintEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Edit Complaint</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mx-auto">
+										<div class="form-group">
+											<label for="company" class=" form-control-label">Title</label>
+											<input type="text" id="company" placeholder="Title" class="form-control">
+										</div>
+										<div class="form-group">
+											<label for="company" class=" form-control-label">Description</label>
+											<div>
+												<div class="editor-full">
+													<div id="complaintEdit" class="ql-scroll-y">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="company" class=" form-control-label">Complaint Status</label>
+											<select class="form-control">
+												<option selected>Pending</option>
+												<option>Inprogress</option>
+												<option>Completed</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-info btn-sm">Save</button>
+									<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--Complaint ID Modal popup is start here-->
+				<div class="modal fade" id="complaintIDModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Complaints Info - 000022</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+										<div class="icon-container iconCustm ml-5 mb-5 mt-5">
+											<span class="ti-comments"></span>
+										</div>
+										<!--
+                                    <div class="row pl-5">
+                                        <div class="col col-md-5">
+                                            <label class=" form-control-label">Name:</label></div>
+                                        <div class="col-12 col-md-7">
+                                            <p class="form-control-static">Raja shekar</p>
+                                        </div>
+                                    </div>
+                                    <div class="row pl-5">
+                                        <div class="col col-md-5">
+                                            <label class=" form-control-label">Date:</label></div>
+                                        <div class="col-12 col-md-7">
+                                            <p class="form-control-static">14-08-2018</p>
+                                        </div>
+                                    </div>
+                                    <div class="row pl-5">
+                                        <div class="col col-md-5">
+                                            <label class=" form-control-label">Unit No:</label></div>
+                                        <div class="col-12 col-md-7">
+                                            <p class="form-control-static">AST0001</p>
+                                        </div>
+                                    </div>
+-->
+									</div>
+									<div class="col-lg-3 mt-5">
+										<div class="row">
+											<div class="col">
+												<label class=" form-control-label">Name:</label></div>
+											<div class="col">
+												<p class="form-control-static">Raja shekar</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col col-md-5">
+												<label class=" form-control-label">Date:</label></div>
+											<div class="col col-md-7">
+												<p class="form-control-static">14-08-2018</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col col-md-5">
+												<label class=" form-control-label">Unit No:</label></div>
+											<div class="col col-md-7">
+												<p class="form-control-static">AST0001</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col col-md-5">
+												<label class=" form-control-label">Status</label></div>
+											<div class="col col-md-7">
+												<p class="form-control-static" style="color: chocolate">PENDING</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-5 col-md-4 col-sm-12 col-xs-12 mt-4">
+										<label class=" form-control-label pt-4">Title:</label>
+										<p class="form-control-static text-justify">Motor not Working</p>
+										<label class=" form-control-label">Description:</label>
+										<p class="form-control-static text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<div class="card">
+											<div class="card-header">
+												<strong class="card-title">Comments History</strong>
+											</div>
+											<div class="card-body">
+												<div class="form-group row">
+													<div class="col-10">
+														<label for="message-text" class="col-form-label">Comments:</label>
+														<textarea class="form-control col-" id="message-text" placeholder="Enter Your Comments"></textarea>
+													</div>
+													<div class="col-2">
+														<button type="button" class="btn btn-info btn-sm mt-5"><i class="fa fa-paper-plane"></i></button>
+													</div>
+												</div>
+												<div class="clearfix"></div>
+												<div class="row">
+													<div class="col-6">
+														<div class="card UserHistory">
+															<div class="card-body">
+																<p>Motor is not working&nbsp;&nbsp;<small>2-2-2019 12:00AM</small></p>
+															</div>
+														</div>
+														<div class="col-6"></div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-6"></div>
+													<div class="col-6">
+														<div class="card historyCard" style="background-color: #53bca6;color: #fff">
+															<div class="card-body">
+																<p>Repair done,Motor is working fine&nbsp;&nbsp;<small>2-2-2019 12:00AM</small></p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-6">
+														<div class="card UserHistory">
+															<div class="card-body">
+																<p>Motor is not working&nbsp;&nbsp;<small>2-2-2019 12:00AM</small></p>
+															</div>
+														</div>
+														<div class="col-6"></div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-6"></div>
+													<div class="col-6">
+														<div class="card historyCard" style="background-color: #53bca6;color: #fff">
+															<div class="card-body">
+																<p>Repair done,Motor is working fine&nbsp;&nbsp;<small>2-2-2019 12:00AM</small></p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.content -->
+			<div class="clearfix"></div>
+			<!-- Footer -->
+			<!-- <footer class="site-footer">
+				<div class="footer-inner bg-white">
+					<div class="row">
+						<div class="col-sm-6">
+							Copyright &copy; 2019 @Maa Properties
+						</div>
+					</div>
+				</div>
+			</footer> -->
+			<!-- /.site-footer -->
+		</div>
+		<!-- /#right-panel -->
+		<!-- Scripts -->
+		<!--
+    <script src="js/data-table/datatables.min.js"></script>
+    <script src="js/data-table/dataTables.bootstrap.min.js"></script>
+    <script src="js/data-table/dataTables.buttons.min.js"></script>
+    <script src="js/data-table/buttons.bootstrap.min.js"></script>
+    <script src="js/data-table/jszip.min.js"></script>
+    <script src="js/data-table/vfs_fonts.js"></script>
+    <script src="js/data-table/buttons.html5.min.js"></script>
+    <script src="js/data-table/buttons.print.min.js"></script>
+    <script src="js/data-table/buttons.colVis.min.js"></script>
+-->
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<!--    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
+		<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>-->
+		<!-- data table JS
+		============================================ -->
+		<script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+		<script src="js/datatable-new-backup/responsivebootstrap4.js"></script>
+		<script src="js/data-table/bootstrap-table.js"></script>
+		<script src="js/data-table/tableExport.js"></script>
+		<script src="js/data-table/data-table-active.js"></script>
+		<script src="js/data-table/bootstrap-table-editable.js"></script>
+		<script src="js/data-table/bootstrap-editable.js"></script>
+		<script src="js/data-table/bootstrap-table-resizable.js"></script>
+		<script src="js/data-table/colResizable-1.5.source.js"></script>
+		<script src="js/data-table/bootstrap-table-export.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/preloader.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/bootstrap-quill.js"></script>
+		<script src="js/sprite.svg.js"></script>
+		<script src="https://cdn.quilljs.com/1.1.6/quill.js"></script>
+		<script src="js/main.js"></script>
+		<!--<script>
+                $("#ComplaintAddDetails").hide();
+                $("#ComplaintPlusAdd").click(function() {
+                    $("#ComplaintIdDetails").hide();
+                    $("#ComplaintEditDetails").hide();
+                    $("#ComplaintAddDetails").show();
+                });
+               $("#ComplaintIdDetails").hide();
+                $("#ComplaintIdShow").click(function() {
+                    $("#ComplaintEditDetails").hide();
+                    $("#ComplaintAddDetails").hide();
+                    $("#ComplaintIdDetails").show();
+                });
+                $("#ComplaintEditDetails").hide();
+                $("#ComplaintEditShow").click(function() {
+                    $("ComplaintAddDetails").hide();
+                    $("#ComplaintIdDetails").hide();
+                    $("#ComplaintEditDetails").show();
+                });
+            </script>-->
+		<script>
+			var toolbarOptions = [
+				[{
+					'header': [1, 2, 3, 4, 5, 6, false]
+				}],
+				['bold', 'italic', 'underline', 'strike'], // toggled buttons
+				['blockquote', 'code-block'],
+				[{
+					'header': 1
+				}, {
+					'header': 2
+				}], // custom button values
+				[{
+					'list': 'ordered'
+				}, {
+					'list': 'bullet'
+				}],
+				[{
+					'script': 'sub'
+				}, {
+					'script': 'super'
+				}], // superscript/subscript
+				[{
+					'indent': '-1'
+				}, {
+					'indent': '+1'
+				}], // outdent/indent
+				[{
+					'direction': 'rtl'
+				}], // text direction
+				[{
+					'size': ['small', false, 'large', 'huge']
+				}], // custom dropdown
+				[{
+					'color': []
+				}, {
+					'background': []
+				}], // dropdown with defaults from theme
+				[{
+					'font': []
+				}],
+				[{
+					'align': []
+				}],
+				['link', 'image'],
+				['clean'] // remove formatting button
+			];
+		</script>
+		<script>
+			var quillFull = new Quill('#complaintEdit', {
+				modules: {
+					toolbar: toolbarOptions,
+					autoformat: true
+				},
+				theme: 'snow',
+				placeholder: "Write something..."
+			});
+		</script>
+		<script>
+			var quillFull = new Quill('#complaintEditAdd', {
+				modules: {
+					toolbar: toolbarOptions,
+					autoformat: true
+				},
+				theme: 'snow',
+				placeholder: "Write something..."
+			});
+		</script>
+		<!--
+            <script>
+                $("#type").on("change", function() {
+                    $modal = $('#selectModal');
+                    if ($(this).val() === 'addAct') {
+                        $modal.modal('show');
+                    }
+                });
+            </script>
+-->
+</body>
+
+</html>
